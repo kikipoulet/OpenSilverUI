@@ -1,0 +1,124 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0" x:Key="CheckedBlue">
+        <GradientStop Color="#FF285AB3" Offset="0" />
+        <GradientStop Color="#FF4184EC" Offset="0.5" />
+        <GradientStop Color="#FF558BED" Offset="0.5" />
+        <GradientStop Color="#FF7DACF0" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0" x:Key="CheckedOrange">
+        <GradientStop Color="#58c1c9" Offset="0" />
+        <GradientStop Color="#4babd0" Offset="0.445" />
+        <GradientStop Color="#419DCE" Offset="0.8" />
+    </LinearGradientBrush>
+    <SolidColorBrush Color="WhiteSmoke" x:Key="CheckedOrangeBorder" />
+    <SolidColorBrush Color="LightGray" x:Key="CheckedBlueBorder" />
+
+
+    <Style x:Key="Switch" TargetType="CheckBox">
+        <Setter Property="Margin" Value="0,-6,0,0" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                   
+                    <DockPanel x:Name="dockPanel">
+                        <ContentPresenter
+                                    Content="{TemplateBinding Content}"
+                                    VerticalAlignment="Center" />
+                        <Grid FlowDirection="LeftToRight" Width="36">
+                            <Border
+                                        BorderBrush="LightGray"
+                                        BorderThickness="0"
+                                        CornerRadius="11"
+                                        Height="22"
+                                Background="#d9d9d9"
+                                        Width="40"
+                                        x:Name="BackgroundBorder">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse
+                                                Grid.Column="1"
+                                                Height="14"
+                                                HorizontalAlignment="Center"
+                                                Stroke="#FF7A7A7A"
+                                                StrokeThickness="2"
+                                                VerticalAlignment="Center"
+                                                Visibility="Collapsed"
+                                                Width="14"
+                                                x:Name="Off" />
+                                    <Line
+                                                Grid.Column="0"
+                                                HorizontalAlignment="Center"
+                                                Stroke="#FF7A7A7A"
+                                                StrokeThickness="2"
+                                                VerticalAlignment="Center"
+                                                Visibility="Collapsed"
+                                                X1="0"
+                                                X2="0"
+                                                Y1="0"
+                                                Y2="14"
+                                                x:Name="On" />
+                                </Grid>
+                            </Border>
+                            <Border
+                                        Background="White"
+                                        BorderBrush="LightGray"
+                                        BorderThickness="0"
+                                        CornerRadius="9"
+                                        Height="18"
+                                        HorizontalAlignment="Left"
+                                        Margin="2.2,0,0,0"
+                                        RenderTransformOrigin="0.5,0.5"
+                                        Width="18"
+                                        x:Name="slider">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        <SkewTransform AngleX="0" AngleY="0" />
+                                        <RotateTransform Angle="0" />
+                                        <TranslateTransform X="0" Y="0" />
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+
+                            </Border>
+                        </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal">
+                                </VisualState>
+                                <VisualState Name="PointerOver">
+                                    <Storyboard>
+                                       <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BackgroundBorder">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#f0f0f0"/>
+                                        </ObjectAnimationUsingKeyFrames> 
+                                    </Storyboard>
+                                </VisualState> 
+                                <VisualState Name="Checked">
+                                    <Storyboard>
+                                        
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BackgroundBorder">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#2f54eb"/>
+                                        </ObjectAnimationUsingKeyFrames>
+
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="slider">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,0,0,0"/>
+                                        </ObjectAnimationUsingKeyFrames> 
+                                      
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </DockPanel>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
