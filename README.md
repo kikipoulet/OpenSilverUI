@@ -1,10 +1,10 @@
 # OpenSilverUI
 
-UI Library compatible with OpenSilver
+Simple UI Library compatible with OpenSilver
 
 ## Installation
 
-- Copy the "OpenSilverUI" Folder in your project 
+- Install the Nuget package "OpenSilverUI"
 - Reference OpenSilverUI in your App.xaml file
 
 ```
@@ -12,7 +12,7 @@ UI Library compatible with OpenSilver
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="OpenSilverUI/Components.xaml"/> <!-- This -->
+                <ResourceDictionary Source="/OpenSilverUI;component/Components/OpenSilverUI.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
