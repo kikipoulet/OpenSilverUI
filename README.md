@@ -1,6 +1,6 @@
 # OpenSilverUI
 
-Simple UI Library compatible with OpenSilver
+Simple UI Library compatible with OpenSilver - just a POC 
 
 ## Installation
 
